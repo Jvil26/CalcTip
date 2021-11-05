@@ -4,7 +4,7 @@ CalcTip is a tip calculator application for iOS.
 
 Submitted by: Justin Sin
 
-Time spent: 20 hours spent in total
+Time spent: 22 hours spent in total
 
 ## User Stories
 
