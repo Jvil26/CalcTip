@@ -32,7 +32,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tipHeader: UILabel!
     
+    @IBOutlet weak var tipCurrencySymbol: UILabel!
+    
     @IBOutlet weak var rateHeader: UILabel!
+    
+    @IBOutlet weak var billAmountCurrencySymbol: UILabel!
     
     @IBOutlet weak var euroTotalLabel: UILabel!
     
@@ -50,7 +54,7 @@ class ViewController: UIViewController {
                     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Tip Calculator"
+        self.title = "CalcTip"
         if let presetRate = defaults.string(forKey: "presetRate") {
             rateLabel.text = "\(presetRate)%"
             tipSlider.value = Float(Int(presetRate) ?? 15)
@@ -128,12 +132,12 @@ class ViewController: UIViewController {
         }
 
         self.billAmountTextField.keyboardType = .decimalPad
-        if (currencySymbol == "£") {
-            self.currencyLabel.text = "£"
-        } else if (currencySymbol == "¥") {
-            self.currencyLabel.text = "¥"
-        } else {
-            self.currencyLabel.text = "$"
+        self.billAmountCurrencySymbol.text = currencySymbol
+        self.currencyLabel.text = currencySymbol
+        self.tipAmountLabel.text = "\(currencyLabel.text ?? "$")0.00"
+        self.totalLabel.text = "\(currencyLabel.text ?? "$")0.00" 
+        print(currencySymbol!)
+        if (currencySymbol == "$"){
             let yuanConversionON = defaults.bool(forKey: "settingsYuanToUS")
             let euroConversionON = defaults.bool(forKey: "settingsEuroToUS")
             if (yuanConversionON && euroConversionON) {

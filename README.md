@@ -10,19 +10,22 @@ Time spent: 20 hours spent in total
 
 The following **required** functionality is complete:
 
-* [ Yes ] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
-* [ Yes ] User can select between tip percentages by tapping different values on the segmented control and the tip value is updated accordingly
+* [x] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
+* [x] User can select between tip percentages by tapping different values on the segmented control and the tip value is updated accordingly.
 
 The following **optional** features are implemented:
 
-* [ Yes ] UI animations
-* [ No ] Remembering the bill amount across app restarts (if <10mins)
-* [ Yes ] Using locale-specific currency and currency thousands separators.
-* [ Yes ] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
+* [x] UI animations
+* [] Remembering the bill amount across app restarts (if <10mins)
+* [x] Using locale-specific currency and currency thousands separators.
+* [x] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality!
+- [x] List anything else that you can get done to improve the app functionality!
+
+* Conversion from US to Yuan currency
+* Conversion from US to Euro currency
 
 ## Video Walkthrough
 
@@ -36,9 +39,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
-One challenge I encountered was with implementing the UIPicker so users could select the background color for the app. There were multiple steps in setting up the components, number of rows, the title in each row, and lastly, the code that runs when a user selects a specific color in the UIPicker.
-
 The biggest challenge for me was creating the settings page and passing the data between view controllers. It took a lot of trial and error before I was finally able to get the data on the view controller from the settings view controller. 
+
+Another challenge I encountered was with implementing the UIPicker so users could select the background color for the app. There were multiple steps in setting up the components, number of rows, the title in each row, and lastly, the code that runs when a user selects a specific color in the UIPicker.
 
 ## License
 

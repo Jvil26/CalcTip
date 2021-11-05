@@ -15,9 +15,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var backgroundColorHeader: UILabel!
     
     @IBOutlet weak var conversionsHeader: UILabel!
-    
-    @IBOutlet weak var saveButton: UIButton!
-    
+        
     @IBOutlet weak var euroToUSLabel: UILabel!
     
     @IBOutlet weak var yuanToUSLabel: UILabel!
@@ -41,7 +39,6 @@ class SettingsViewController: UIViewController {
         self.title = "Settings"
         backgroundColorPickerView.dataSource = self
         backgroundColorPickerView.delegate = self
-        backgroundColorPickerView.selectRow(backgroundColorPickerData.firstIndex(of: defaults.string(forKey: "backgroundColorKey")!) ?? 0, inComponent: 0, animated: true)
         self.presetRateTextField.keyboardType = .decimalPad
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +86,7 @@ class SettingsViewController: UIViewController {
                 nav?.tintColor = UIColor.white
                 nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white
                 ]
-                self.backgroundColorPickerView.setValue(UIColor.white, forKey: "backgroundColor")
+                self.backgroundColorPickerView.setValue(UIColor.white, forKey: "textColor")
             } else {
                 self.backgroundColorHeader.textColor = .black
                 self.conversionsHeader.textColor = .black
@@ -103,6 +100,7 @@ class SettingsViewController: UIViewController {
                 ]
                 self.backgroundColorPickerView.setValue(UIColor.black, forKey: "textColor")
             }
+            backgroundColorPickerView.selectRow(backgroundColorPickerData.firstIndex(of: defaults.string(forKey: "backgroundColorKey")!) ?? 0, inComponent: 0, animated: true)
         }
         self.yuanToUSSwitch.isOn = defaults.bool(forKey: "settingsYuanToUS")
         self.euroToUSSwitch.isOn = defaults.bool(forKey: "settingsEuroToUS")
@@ -185,7 +183,7 @@ class SettingsViewController: UIViewController {
                 nav?.barStyle = UIBarStyle.default
                 nav?.tintColor = UIColor.white
                 nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-                self.backgroundColorPickerView.setValue(UIColor.black, forKey: "textColor")
+                self.backgroundColorPickerView.setValue(UIColor.white, forKey: "textColor")
             } else {
                 self.backgroundColorHeader.textColor = .black
                 self.conversionsHeader.textColor = .black
