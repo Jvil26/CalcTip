@@ -26,6 +26,10 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var yuanToUSSwitch: UISwitch!
     
+    @IBOutlet weak var presetRateTextField: UITextField!
+    
+    @IBOutlet weak var presetRateLabel: UILabel!
+    
     let currencySymbol = Locale.current.currencySymbol
 
     let backgroundColorPickerData: [String] = ["Light", "Dark", "Teal", "Yellow", "Green", "Red", "Pink", "Purple"]
@@ -38,9 +42,15 @@ class SettingsViewController: UIViewController {
         backgroundColorPickerView.dataSource = self
         backgroundColorPickerView.delegate = self
         backgroundColorPickerView.selectRow(backgroundColorPickerData.firstIndex(of: defaults.string(forKey: "backgroundColorKey")!) ?? 0, inComponent: 0, animated: true)
+        self.presetRateTextField.keyboardType = .decimalPad
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if let presetRate = defaults.string(forKey: "presetRate") {
+            presetRateTextField.text = presetRate
+        } else {
+            presetRateTextField.text = "15"
+        }
         if let backgroundColor = defaults.string(forKey: "backgroundColorKey") {
             switch(backgroundColor) {
             case "Teal":
@@ -69,46 +79,51 @@ class SettingsViewController: UIViewController {
                 break;
             }
             if (backgroundColor != "Light" && backgroundColor != "Yellow") {
-                backgroundColorHeader.textColor = .white
-                conversionsHeader.textColor = .white
-                yuanToUSLabel.textColor = .white
-                euroToUSLabel.textColor = .white
+                self.backgroundColorHeader.textColor = .white
+                self.conversionsHeader.textColor = .white
+                self.yuanToUSLabel.textColor = .white
+                self.euroToUSLabel.textColor = .white
+                self.presetRateLabel.textColor = .white
                 let nav = self.navigationController?.navigationBar
                 nav?.barStyle = UIBarStyle.default
                 nav?.tintColor = UIColor.white
                 nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white
                 ]
-                backgroundColorPickerView.setValue(UIColor.white, forKey: "backgroundColor")
+                self.backgroundColorPickerView.setValue(UIColor.white, forKey: "backgroundColor")
             } else {
-                backgroundColorHeader.textColor = .black
-                conversionsHeader.textColor = .black
-                yuanToUSLabel.textColor = .black
-                euroToUSLabel.textColor = .black
+                self.backgroundColorHeader.textColor = .black
+                self.conversionsHeader.textColor = .black
+                self.yuanToUSLabel.textColor = .black
+                self.euroToUSLabel.textColor = .black
+                self.presetRateLabel.textColor = .black
                 let nav = self.navigationController?.navigationBar
                 nav?.barStyle = UIBarStyle.black
                 nav?.tintColor = UIColor.black
                 nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black
                 ]
-                backgroundColorPickerView.setValue(UIColor.black, forKey: "textColor")
+                self.backgroundColorPickerView.setValue(UIColor.black, forKey: "textColor")
             }
         }
-        yuanToUSSwitch.isOn = defaults.bool(forKey: "settingsYuanToUS")
-        euroToUSSwitch.isOn = defaults.bool(forKey: "settingsEuroToUS")
+        self.yuanToUSSwitch.isOn = defaults.bool(forKey: "settingsYuanToUS")
+        self.euroToUSSwitch.isOn = defaults.bool(forKey: "settingsEuroToUS")
         if (currencySymbol == "$") {
-            yuanToUSSwitch.isHidden = false
-            yuanToUSLabel.isHidden = false
-            euroToUSSwitch.isHidden = false
-            euroToUSLabel.isHidden = false
+            self.yuanToUSSwitch.isHidden = false
+            self.yuanToUSLabel.isHidden = false
+            self.euroToUSSwitch.isHidden = false
+            self.euroToUSLabel.isHidden = false
         } else {
-            yuanToUSSwitch.isHidden = true
-            yuanToUSSwitch.isOn = false
-            yuanToUSLabel.isHidden = true
-            euroToUSSwitch.isHidden = true
-            euroToUSSwitch.isOn = false
-            euroToUSLabel.isHidden = true
+            self.yuanToUSSwitch.isHidden = true
+            self.yuanToUSSwitch.isOn = false
+            self.yuanToUSLabel.isHidden = true
+            self.euroToUSSwitch.isHidden = true
+            self.euroToUSSwitch.isOn = false
+            self.euroToUSLabel.isHidden = true
         }
     }
     
+    @IBAction func setPresetRate(_ sender: Any) {
+        defaults.set(presetRateTextField.text, forKey: "presetRate")
+    }
     
     @IBAction func setConvertYuanToUS(_ sender: Any) {
         defaults.set(yuanToUSSwitch.isOn, forKey: "settingsYuanToUS")
@@ -161,26 +176,28 @@ class SettingsViewController: UIViewController {
                 break;
             }
             if (color != "Light" && color != "Yellow") {
-                backgroundColorHeader.textColor = .white
-                conversionsHeader.textColor = .white
-                yuanToUSLabel.textColor = .white
-                euroToUSLabel.textColor = .white
+                self.backgroundColorHeader.textColor = .white
+                self.conversionsHeader.textColor = .white
+                self.yuanToUSLabel.textColor = .white
+                self.euroToUSLabel.textColor = .white
+                self.presetRateLabel.textColor = .white
                 let nav = self.navigationController?.navigationBar
                 nav?.barStyle = UIBarStyle.default
                 nav?.tintColor = UIColor.white
                 nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-                backgroundColorPickerView.setValue(UIColor.black, forKey: "textColor")
+                self.backgroundColorPickerView.setValue(UIColor.black, forKey: "textColor")
             } else {
-                backgroundColorHeader.textColor = .black
-                conversionsHeader.textColor = .black
-                yuanToUSLabel.textColor = .black
-                euroToUSLabel.textColor = .black
+                self.backgroundColorHeader.textColor = .black
+                self.conversionsHeader.textColor = .black
+                self.yuanToUSLabel.textColor = .black
+                self.euroToUSLabel.textColor = .black
+                self.presetRateLabel.textColor = .black
                 let nav = self.navigationController?.navigationBar
                 nav?.barStyle = UIBarStyle.black
                 nav?.tintColor = UIColor.black
                 nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black
                 ]
-                backgroundColorPickerView.setValue(UIColor.black, forKey: "textColor")
+                self.backgroundColorPickerView.setValue(UIColor.black, forKey: "textColor")
             }
             defaults.set(color, forKey: "backgroundColorKey")
         }

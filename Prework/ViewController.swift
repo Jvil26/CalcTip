@@ -51,6 +51,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Tip Calculator"
+        if let presetRate = defaults.string(forKey: "presetRate") {
+            rateLabel.text = "\(presetRate)%"
+            tipSlider.value = Float(Int(presetRate) ?? 15)
+        } else {
+            rateLabel.text = "15%"
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -136,15 +142,15 @@ class ViewController: UIViewController {
                 euroTotalLabel.isHidden = false
                 euroTotalHeader.isHidden = false
             } else if (yuanConversionON) {
-                yuanTotalLabel.isHidden = true
-                yuanTotalHeader.isHidden = true
-                euroTotalLabel.isHidden = false
-                euroTotalHeader.isHidden = false
-            } else if (euroConversionON) {
                 yuanTotalLabel.isHidden = false
                 yuanTotalHeader.isHidden = false
                 euroTotalLabel.isHidden = true
                 euroTotalHeader.isHidden = true
+            } else if (euroConversionON) {
+                yuanTotalLabel.isHidden = true
+                yuanTotalHeader.isHidden = true
+                euroTotalLabel.isHidden = false
+                euroTotalHeader.isHidden = false
             } else {
                 yuanTotalLabel.isHidden = true
                 yuanTotalHeader.isHidden = true
