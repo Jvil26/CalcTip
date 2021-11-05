@@ -16,6 +16,7 @@
 		54410C6A272FEED7009CA990 /* PreworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54410C69272FEED7009CA990 /* PreworkTests.swift */; };
 		54410C74272FEED7009CA990 /* PreworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54410C73272FEED7009CA990 /* PreworkUITests.swift */; };
 		54410C76272FEED7009CA990 /* PreworkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54410C75272FEED7009CA990 /* PreworkUITestsLaunchTests.swift */; };
+		54410C8527309514009CA990 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54410C8427309514009CA990 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		54410C6F272FEED7009CA990 /* PreworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PreworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54410C73272FEED7009CA990 /* PreworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreworkUITests.swift; sourceTree = "<group>"; };
 		54410C75272FEED7009CA990 /* PreworkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreworkUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		54410C8427309514009CA990 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				54410C54272FEED6009CA990 /* SceneDelegate.swift */,
 				54410C56272FEED6009CA990 /* ViewController.swift */,
 				54410C58272FEED6009CA990 /* Main.storyboard */,
+				54410C8427309514009CA990 /* SettingsViewController.swift */,
 				54410C5B272FEED7009CA990 /* Assets.xcassets */,
 				54410C5D272FEED7009CA990 /* LaunchScreen.storyboard */,
 				54410C60272FEED7009CA990 /* Info.plist */,
@@ -261,6 +264,7 @@
 				54410C57272FEED6009CA990 /* ViewController.swift in Sources */,
 				54410C53272FEED6009CA990 /* AppDelegate.swift in Sources */,
 				54410C55272FEED6009CA990 /* SceneDelegate.swift in Sources */,
+				54410C8527309514009CA990 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
